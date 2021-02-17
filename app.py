@@ -10,7 +10,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def hello_world():
     """ Returns root endpoint HTML """
 
-    keyword_query = 'Gamestop' # Change it to something you're interested in!
+    keyword_query = 'Tech' # Change it to something you're interested in!
     article_data = get_article_data(keyword_query)
 
     return render_template(
@@ -19,6 +19,10 @@ def hello_world():
         headlines=article_data['headlines'],
         snippets=article_data['snippets'],
     )
+
+@app.route('/search/<keyword>')
+def search(keyword):
+    return get_article_data(keyword)
 
 app.run(
     host=os.getenv('IP', '0.0.0.0'),

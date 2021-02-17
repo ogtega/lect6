@@ -7,7 +7,10 @@
 
 <body>
     <h1>What's being reported about {{ topic }}?</h1>
-    <div class='container'>
+    <input type="text" id="searchBox" name="keyword" required
+       minlength="1" size="10">
+    <button id="seachButton">Search</button> 
+    <div id="items" class='container'>
         {% for i in range(10) %}
         <div class='item'>
             <p><b>{{ headlines[i] }}</b></p>
@@ -15,7 +18,7 @@
         </div>
         {% endfor %}
     </div>
-
+<script type="text/javascript" src="/static/script.js"></script>
 </body>
 
 </html>
